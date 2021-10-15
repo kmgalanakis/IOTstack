@@ -1,0 +1,22 @@
+resiliosync:
+  container_name: resiliosync_iot
+  image: "linuxserver/resilio-sync:latest"
+  restart: unless-stopped
+  network_mode: bridge
+  ports:
+    - "5555:5555/tcp"
+    - "8888:8888/tcp"
+  environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Europe/Athens
+    - UMASK_SET=022
+    - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    - HOME=/root
+    - LANGUAGE=en_US.UTF-8
+    - LANG=en_US.UTF-8
+    - TERM=xterm
+  volumes:
+    - /mnt/nas/AppData/resilio-sync:/config
+    - /mnt/nas:/downloads
+    - /mnt/nas:/sync

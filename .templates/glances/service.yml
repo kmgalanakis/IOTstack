@@ -1,0 +1,19 @@
+glances:
+  container_name: glances_iot
+  image: "jdreinhardt/glances:latest"
+  restart: unless-stopped
+  network_mode: bridge
+  ports:
+    - "61208:61208/tcp"
+  environment:
+    - GLANCES_OPT=-w
+    - GPG_KEY=E3FF2839C048B25C084DEBE9B26995E310250568
+    - LANG=C.UTF-8
+    - PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    - PYTHON_GET_PIP_SHA256=421ac1d44c0cf9730a088e337867d974b91bdce4ea2636099275071878cc189e
+    - PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/d59197a3c169cef378a22428a3fa99d33e080a5d/get-pip.py
+    - PYTHON_PIP_VERSION=20.0.2
+    - PYTHON_VERSION=3.8.2
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /data:/etc/glances

@@ -1,0 +1,19 @@
+minidlna:
+  container_name: minidlna_iot
+  image: "vladgh/minidlna:latest"
+  restart: unless-stopped
+  network_mode: host
+  environment:
+    - MINIDLNA_MEDIA_DIR_1=V=/media/Movies
+    - MINIDLNA_MEDIA_DIR_2=V=/media/Series
+    - MINIDLNA_FRIENDLY_NAME=IOTRPINAS
+    - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    - MINIDLNA_MEDIA_DIR_3=M=/media/Music
+    - MINIDLNA_MEDIA_DIR_4=V=/media/Theaters
+    - MINIDLNA_MEDIA_DIR_5=V=/media/Torrents
+  volumes:
+    - /mnt/nas/nas/Theaters:/media/Theaters
+    - /mnt/nas/nas/Torrents:/media/Torrents
+    - /mnt/nas/nas/Movies:/media/Movies
+    - /mnt/nas/nas/Music:/media/Music
+    - /mnt/nas/nas/Series:/media/Series
