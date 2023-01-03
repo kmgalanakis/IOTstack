@@ -17,6 +17,6 @@ resiliosync:
     - LANG=en_US.UTF-8
     - TERM=xterm
   volumes:
-    - /mnt/nas/AppData/resilio-sync:/config
+    - ~/AppData/resilio-sync:/config
     - /mnt/nas:/downloads
     - /mnt/nas:/sync
