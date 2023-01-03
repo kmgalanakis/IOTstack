@@ -15,4 +15,4 @@ transmission_iot:
     - "51413:51413/udp"
   restart: unless-stopped
   networks:
-    - iotstack_nw
+    - default

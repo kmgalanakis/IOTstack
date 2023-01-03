@@ -15,4 +15,4 @@ rutorrent_iot:
     - "61413:61413"
   restart: unless-stopped
   networks:
-    - iotstack_nw
+    - default
