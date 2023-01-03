@@ -11,9 +11,13 @@ minidlna:
     - MINIDLNA_MEDIA_DIR_3=M=/media/Music
     - MINIDLNA_MEDIA_DIR_4=V=/media/Theaters
     - MINIDLNA_MEDIA_DIR_5=V=/media/Torrents
+    - MINIDLNA_MEDIA_DIR_6=V=/media/Transmission
+    - MINIDLNA_MEDIA_DIR_7=V=/media/NAS2Video
   volumes:
     - /mnt/nas/nas/Theaters:/media/Theaters
     - /mnt/nas/nas/Torrents:/media/Torrents
     - /mnt/nas/nas/Movies:/media/Movies
     - /mnt/nas/nas/Music:/media/Music
     - /mnt/nas/nas/Series:/media/Series
+    - /mnt/nas/nas/Transmission/downloads/complete:/media/Transmission
+    - /mnt/nas2/nas/Video:/media/NAS2Video
