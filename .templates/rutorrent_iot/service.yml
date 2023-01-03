@@ -1,0 +1,18 @@
+rutorrent_iot:
+  image: crazymax/rtorrent-rutorrent
+  container_name: rutorrent_iot
+  environment:
+    - RT_INC_PORT=61413
+  volumes:
+    - ~/AppData/rutorrent/config:/data
+    - /mnt/nas/nas/rutorrent/downloads:/downloads
+    - ~/AppData/rutorrent/passwd:/passwd
+  ports:
+    - "6881:6881/udp"
+    - "8080:8080"
+    - "8001:8000"
+    - "9001:9000"
+    - "61413:61413"
+  restart: unless-stopped
+  networks:
+    - iotstack_nw
