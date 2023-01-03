@@ -1,0 +1,18 @@
+transmission_iot:
+  image: linuxserver/transmission
+  container_name: transmission_iot
+  environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+  volumes:
+    - ~/AppData/transmission/config:/config
+    - /mnt/nas/nas/Transmission/downloads:/downloads
+    - /mnt/nas/nas/Transmission/watch:/watch
+  ports:
+    - "9091:9091"
+    - "51413:51413"
+    - "51413:51413/udp"
+  restart: unless-stopped
+  networks:
+    - iotstack_nw
